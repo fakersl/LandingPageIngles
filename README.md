@@ -1,7 +1,5 @@
 # Le Parfum - Website
 
-![Le Parfum Logo](https://www.svgrepo.com/show/246015/perfume.svg)
-
 ## Descrição
 
 Este é o repositório do site Le Parfum, uma landing page de uma perfumaria virtual que oferece uma ampla variedade de perfumes clássicos e novos. O site é projetado para ser elegante e informativo, oferecendo uma experiência agradável aos usuários.
