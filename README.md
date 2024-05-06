@@ -1,6 +1,6 @@
 # Le Parfum - Website
 
-![Le Parfum Logo]([https://www.svgrepo.com/show/246015/perfume.svg](https://www.svgrepo.com/show/246015/perfume.svg))
+![Le Parfum Logo](https://www.svgrepo.com/show/246015/perfume.svg)
 
 ## Descrição
 
