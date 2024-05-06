@@ -41,7 +41,7 @@ Fique à vontade para contribuir com novos recursos, correções de bugs ou melh
 Este site foi desenvolvido por:
 - [Gustavo Santos](https://github.com/fakersl).
 - [Cauan Gabriel](https://github.com/LoadCG).
-- [Lucas Vinicius] N/A.
+- [Lucas Vinicius](https://github.com/Lvcasz).
 - [Gabriel Henrique](https://github.com/goufopersico).
 
 ## Licença
