@@ -13,7 +13,7 @@ Este é o repositório do site Le Parfum, uma landing page de uma perfumaria vir
 ## Capturas de Tela
 
 ### Landing Page
-<img src="./github/Perfume1.png" width="1920" height="1080">
+<img src="./github/Perfume1.png" width="1360" height="768">
 
 ### Perfume - Scandal Absolu
 <img src="https://prnt.sc/zi6zFmWpwfR6" width="500" height="500">
