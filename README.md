@@ -13,13 +13,13 @@ Este é o repositório do site Le Parfum, uma landing page de uma perfumaria vir
 ## Capturas de Tela
 
 ### Landing Page
-![Landing Page](https://prnt.sc/sCA0bPgA_b6P)
+![Landing Page](https://imgur.com/S1cPvj3)
 
 ### Perfume - Scandal Absolu
-![Perfume - Scandal Absolu](https://prnt.sc/zi6zFmWpwfR6)
+![Perfume - Scandal Absolu](https://imgur.com/10JhD1y)
 
 ### Perfume - Scandal Le Parfum
-![Perfume - Scandal Le Parfum](https://prnt.sc/CdEa7yF9VE6h)
+![Perfume - Scandal Le Parfum](https://imgur.com/1P7cYrx)
 
 ## Recursos
 
