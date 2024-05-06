@@ -38,7 +38,11 @@ Fique à vontade para contribuir com novos recursos, correções de bugs ou melh
 
 ## Autor
 
-Este site foi desenvolvido por [Gustavo Aantos, Cauan Gabriel, Lucas Vinicius e Gabriel Henrique](https://github.com/fakersl).
+Este site foi desenvolvido por:
+- [Gustavo Santos] (https://github.com/fakersl).
+- [Cauan Gabriel] (https://github.com/LoadCG).
+- [Lucas Vinicius] N/A.
+- [Gabriel Henrique] (https://github.com/goufopersico).
 
 ## Licença
 
