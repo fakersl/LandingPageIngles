@@ -1,37 +1,47 @@
-# Le Parfum - Sign Up
+# Le Parfum - Website
 
-This is a landing page for Le Parfum, a fictional perfume brand, showcasing different perfumes and allowing users to sign up for news and updates.
+![Le Parfum Logo](https://www.svgrepo.com/show/246015/perfume.svg)
 
-## Table of Contents
+## Descrição
 
-- [About](#about)
-- [Perfumes](#perfumes)
-  - [Scandal Absolu](#scandal-absolu)
-  - [Scandal Le Parfum](#scandal-le-parfum)
-  - [Le Beau Le Parfum](#le-beau-le-parfum)
-- [Footer](#footer)
+Este é o repositório do site Le Parfum, uma perfumaria virtual que oferece uma ampla variedade de perfumes clássicos e novos. O site é projetado para ser elegante e informativo, oferecendo uma experiência agradável aos usuários.
 
-## About
+## Tecnologias Utilizadas
 
-This landing page features a responsive design and incorporates animations using GSAP. It includes a navigation bar, sections for each perfume, and a footer.
+- HTML
+- CSS (utilizando Tailwind CSS)
+- JavaScript (utilizando GSAP para animações)
 
-## Perfumes
+## Capturas de Tela
 
-### Scandal Absolu
+### Landing Page
+![Landing Page](screenshot-landing-page.png)
 
-Scandal Absolu by Jean Paul Gaultier is an opulent and sensual perfume that celebrates the powerful and authentic woman. Its striking fragrance combines notes of succulent black fig, intoxicating tuberose, and woody sandalwood, creating an unforgettable aroma that exudes confidence and magnetism.
+### Perfume - Scandal Absolu
+![Perfume - Scandal Absolu](screenshot-scandal-absolu.png)
 
-### Scandal Le Parfum
+### Perfume - Scandal Le Parfum
+![Perfume - Scandal Le Parfum](screenshot-scandal-le-parfum.png)
 
-Scandal Le Parfum by Jean Paul Gaultier reinterprets the iconic Scandal aroma with an even more elegant and sophisticated touch. Its floral oriental fragrance combines notes of honey, jasmine, and patchouli, creating a sensual and enveloping perfume that accompanies you at all times.
+## Recursos
 
-### Le Beau Le Parfum
+- **Navbar**: Navegação elegante com opções para explorar diferentes perfumes.
+- **Vídeos**: Integração de vídeos para mostrar os produtos de forma dinâmica.
+- **Seções de Perfume**: Informações detalhadas sobre os diferentes perfumes oferecidos pela Le Parfum.
+- **Formulário de Inscrição**: Os usuários podem se inscrever para receber as últimas novidades da perfumaria.
 
-Le Beau Le Parfum is another stunning fragrance by Le Parfum. Unfortunately, this section is under construction and will be available soon.
+## Como Contribuir
 
-## Footer
+1. Clone o repositório: `git clone https://github.com/seu-usuario/nome-do-repositorio.git`
+2. Faça suas alterações
+3. Envie um pull request
 
-The footer contains links to social media profiles and copyright information.
+Fique à vontade para contribuir com novos recursos, correções de bugs ou melhorias no design!
 
----
-© 2024 Le Parfum. All Rights Reserved.
+## Autor
+
+Este site foi desenvolvido por [Seu Nome](https://github.com/seu-usuario).
+
+## Licença
+
+Este projeto está licenciado sob a Licença MIT - consulte o arquivo [LICENSE](LICENSE) para mais detalhes.
