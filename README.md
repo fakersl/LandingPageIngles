@@ -1,10 +1,10 @@
 # Le Parfum - Website
 
-![Le Parfum Logo](https://www.svgrepo.com/show/246015/perfume.svg)
+![Le Parfum Logo]([https://www.svgrepo.com/show/246015/perfume.svg](https://www.svgrepo.com/show/246015/perfume.svg))
 
 ## Descrição
 
-Este é o repositório do site Le Parfum, uma perfumaria virtual que oferece uma ampla variedade de perfumes clássicos e novos. O site é projetado para ser elegante e informativo, oferecendo uma experiência agradável aos usuários.
+Este é o repositório do site Le Parfum, uma landing page de uma perfumaria virtual que oferece uma ampla variedade de perfumes clássicos e novos. O site é projetado para ser elegante e informativo, oferecendo uma experiência agradável aos usuários.
 
 ## Tecnologias Utilizadas
 
@@ -32,15 +32,15 @@ Este é o repositório do site Le Parfum, uma perfumaria virtual que oferece uma
 
 ## Como Contribuir
 
-1. Clone o repositório: `git clone https://github.com/seu-usuario/nome-do-repositorio.git`
-2. Faça suas alterações
-3. Envie um pull request
+1. Clone o repositório: `git clone https://github.com/fakersl/LandingPageIngles`;
+2. Faça suas alterações;
+3. Envie um pull request.
 
 Fique à vontade para contribuir com novos recursos, correções de bugs ou melhorias no design!
 
 ## Autor
 
-Este site foi desenvolvido por [Seu Nome](https://github.com/seu-usuario).
+Este site foi desenvolvido por [Gustavo Aantos, Cauan Gabriel, Lucas Vinicius e Gabriel Henrique](https://github.com/fakersl).
 
 ## Licença
 
