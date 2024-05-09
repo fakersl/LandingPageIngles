@@ -26,9 +26,9 @@
                     <!-- <img src="logo.jpg" class="h-6 mr-3 sm:h-9" /> -->
                     <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Le Parfum</span>
                 </a>
-                <div class="flex items-center lg:order-2">
+                <div class="flex items-center lg:order-2 group">
                     <a href="#"
-                        class="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-4 sm:px-2 sm:px-2 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800">About
+                        class="text-white bg-purple-700 group-hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-4 sm:px-2 sm:px-2 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800">About
                         Us</a>
                     <button data-collapse-toggle="mobile-menu-2" type="button"
                         class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
@@ -94,14 +94,17 @@
                         height: calc(100vh - 60px);
                     }
 
-                    @media (max-width: 640px) {
+                    @media (max-width: 1440px) {
                         #perfume1 {
                             display: none;
                         }
-
+                        #bgsect1{
+                            display: flex;
+                            justify-content: center;
+                        }
                     }
                 </style>
-                <div class="pr-4 pl-4 mt-8 md:visible lg:visible xl:visible 2xl:visible" id="perfume1">
+                <div class="pr-4 pl-4 mt-8 md:visible lg:visible xl:visible 2xl:visible max-h-min"  style="max-height: 840px;" id="perfume1">
                     <video autoplay playsinline muted loop width="100%" height="100%">
                         <source
                             src="https://www.jeanpaulgaultier.com/medias/sys_master/videos/h2f/h45/9530543538206/9530543472670/9530543472670.webm"
@@ -153,7 +156,7 @@
         <div class="items-center bg-gray-75 gap-2 lg:grid lg:grid-cols-2 xl:gap-16 mx-12 sm:px-4 sm:px-2 sm:px-2">
             <div class="w-full pt-8 mb-4 rounded-lg lg:mb-0 lg:flex sm:hidden lg:visible" data-aos="zoom-i-up"
                 data-aos-easing="ease-in-out">
-                <video playsinline muted loop width="100%" height="100%">
+                <video autoplay playsinline muted loop width="100%" height="100%">
                     <source
                         src="https://www.jeanpaulgaultier.com/medias/sys_master/videos/h08/h63/9925648810014/9925648744478/9925648744478.webm"
                         type="video/webm;codecs=&quot;vp8, vorbis&quot;">
