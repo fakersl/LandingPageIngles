@@ -15,7 +15,7 @@
     <link rel="icon" type="image/x-icon" href="https://www.svgrepo.com/show/246015/perfume.svg">
 </head>
 
-<body class="overflow-x-hidden ">
+<body class="overflow-x-hidden select-none">
     <!-- Navbar: Inicio -->
     <header class="w-full z-50 fixed drop-shadow-2xl">
         <nav class="bg-white border-gray-200 py-2.5 dark:bg-gray-900">
@@ -574,48 +574,118 @@
         // Initialize AOS
         AOS.init();
     </script>
-    <!-- Lighthouse CI -->
-    <script type="module" src="https://unpkg.com/web-vitals/dist/web-vitals.iife.js"></script>
-    <!-- Adicione isso no final do <body> -->
     <script>
-        // Monitoramento leve de performance
-        function trackPerf() {
+        // Função principal para rastreamento de performance
+        function trackPerformance() {
             const perfData = {
-                dcl: 0, // DOMContentLoaded
-                load: 0, // Window Load
-                lcp: 0,  // Largest Contentful Paint
-                cls: 0   // Cumulative Layout Shift
+                ttfb: 0,     // Time To First Byte
+                dcl: 0,      // DOMContentLoaded
+                load: 0,     // Window Load
+                lcp: 0,      // Largest Contentful Paint
+                cls: 0,      // Cumulative Layout Shift
+                fid: null,   // First Input Delay
+                inp: null    // Interaction to Next Paint (novo em 2024)
             };
 
-            // Métricas básicas
-            perfData.dcl = performance.timing.domContentLoadedEventEnd - performance.timing.navigationStart;
-            perfData.load = performance.timing.loadEventEnd - performance.timing.navigationStart;
+            // 1. Métricas básicas de tempo
+            const reportTiming = () => {
+                if (performance.timing) {
+                    // Navegadores antigos (PerformanceTiming API)
+                    perfData.ttfb = performance.timing.responseStart - performance.timing.navigationStart;
+                    perfData.dcl = performance.timing.domContentLoadedEventEnd - performance.timing.navigationStart;
+                    perfData.load = performance.timing.loadEventEnd - performance.timing.navigationStart;
+                } else {
+                    // Navegadores modernos (Navigation Timing API v2)
+                    const navEntry = performance.getEntriesByType('navigation')[0];
+                    if (navEntry) {
+                        perfData.ttfb = navEntry.responseStart;
+                        perfData.dcl = navEntry.domContentLoadedEventEnd;
+                        perfData.load = navEntry.loadEventEnd;
+                    }
+                }
+                console.log('Timing Metrics:', {
+                    ttfb: `${perfData.ttfb}ms`,
+                    dcl: `${perfData.dcl}ms`,
+                    load: `${perfData.load}ms`
+                });
+            };
 
-            // Observer para LCP
-            new PerformanceObserver((entryList) => {
+            // 2. Observer para LCP (Largest Contentful Paint)
+            const lcpObserver = new PerformanceObserver((entryList) => {
                 const entries = entryList.getEntries();
                 const lastEntry = entries[entries.length - 1];
                 perfData.lcp = lastEntry.renderTime || lastEntry.loadTime;
-            }).observe({ type: 'largest-contentful-paint', buffered: true });
+                console.log('LCP Updated:', `${perfData.lcp}ms`, lastEntry);
+            });
+            lcpObserver.observe({ type: 'largest-contentful-paint', buffered: true });
 
-            // Observer para CLS
-            new PerformanceObserver((entryList) => {
+            // 3. Observer para CLS (Cumulative Layout Shift)
+            let clsValue = 0;
+            const clsObserver = new PerformanceObserver((entryList) => {
                 for (const entry of entryList.getEntries()) {
-                    perfData.cls += entry.value;
+                    if (!entry.hadRecentInput) {
+                        clsValue += entry.value;
+                        perfData.cls = clsValue;
+                        console.log('CLS Updated:', perfData.cls, entry);
+                    }
                 }
-            }).observe({ type: 'layout-shift', buffered: true });
+            });
+            clsObserver.observe({ type: 'layout-shift', buffered: true });
 
-            // Envia dados após 5s (opcional)
-            setTimeout(() => {
-                console.log('Performance Metrics:', perfData);
-                // Aqui você pode enviar para Google Analytics ou outro serviço
-            }, 5000);
+            // 4. Observer para FID (First Input Delay)
+            const fidObserver = new PerformanceObserver((entryList) => {
+                const entries = entryList.getEntries();
+                for (const entry of entries) {
+                    perfData.fid = entry.processingStart - entry.startTime;
+                    console.log('FID Detected:', `${perfData.fid}ms`, entry);
+                }
+            });
+            fidObserver.observe({ type: 'first-input', buffered: true });
+
+            // 5. Observer para INP (Interaction to Next Paint) - Nova métrica em 2024
+            const inpObserver = new PerformanceObserver((entryList) => {
+                const entries = entryList.getEntries();
+                for (const entry of entries) {
+                    perfData.inp = entry.duration;
+                    console.log('INP Detected:', `${perfData.inp}ms`, entry);
+                }
+            });
+            inpObserver.observe({ type: 'event', buffered: true, durationThreshold: 16 });
+
+            // 6. Relatório final quando a página for descarregada
+            window.addEventListener('beforeunload', () => {
+                perfData.loadTime = performance.now();
+                console.log('Final Performance Metrics:', {
+                    'Time To First Byte': `${perfData.ttfb}ms`,
+                    'DOM Content Loaded': `${perfData.dcl}ms`,
+                    'Window Load': `${perfData.load}ms`,
+                    'Largest Contentful Paint': `${perfData.lcp}ms`,
+                    'Cumulative Layout Shift': perfData.cls,
+                    'First Input Delay': `${perfData.fid}ms`,
+                    'Interaction to Next Paint': `${perfData.inp}ms`,
+                    'Total Load Time': `${perfData.loadTime}ms`
+                });
+
+                // Opcional: enviar para analytics
+                if (navigator.sendBeacon) {
+                    const blob = new Blob([JSON.stringify(perfData)], { type: 'application/json' });
+                    navigator.sendBeacon('/analytics', blob);
+                }
+            });
+
+            // Relatório inicial após 1 segundo
+            setTimeout(reportTiming, 1000);
         }
 
-        // Inicia apenas em produção e para usuários reais
-        if (window.location.hostname !== 'localhost' &&
-            !navigator.userAgent.match(/bot|crawl|spider/i)) {
-            window.addEventListener('load', trackPerf, { once: true });
+        // Inicia o rastreamento em produção
+        if (window.location.hostname !== 'localhost') {
+            if (window.PerformanceObserver) {
+                window.addEventListener('load', trackPerformance, { once: true });
+            } else {
+                console.warn('PerformanceObserver not supported in this browser');
+            }
+        } else {
+            console.log('Performance tracking disabled on localhost');
         }
     </script>
 </body>
