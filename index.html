@@ -304,9 +304,10 @@
     <!-- Perfume 2: Scandal Absolu (Inicio) -->
     <section class="py-6 px-4 sm:px-6 lg:py-12" id="scandal-absolu">
         <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-6 lg:gap-12">
-            <!-- Video - Mostrar apenas em desktop -->
-            <div class="w-full lg:w-1/2 hidden lg:block rounded-lg" data-aos="fade-right" data-aos-delay="600">
-                <video autoplay playsinline muted loop width="100%" height="auto">
+            <!-- Video - Agora visível em todas as telas -->
+            <div class="w-full lg:w-1/2 order-first lg:order-none rounded-lg" data-aos="fade-right"
+                data-aos-delay="600">
+                <video autoplay playsinline muted loop class="w-full rounded-lg">
                     <source src="assets/scandalAbsolu.webm" type="video/webm">
                 </video>
             </div>
@@ -430,10 +431,9 @@
                     </p>
                 </div>
 
-                <!-- Video - Mostrar apenas em desktop -->
-                <div class="w-full lg:w-1/2 order-1 lg:order-2 hidden lg:block rounded-lg" data-aos="fade-left"
-                    data-aos-delay="600">
-                    <video autoplay playsinline muted loop class="w-full h-auto">
+                <!-- Video - Agora visível em todas as telas -->
+                <div class="w-full lg:w-1/2 order-1 lg:order-2 rounded-lg" data-aos="fade-left" data-aos-delay="600">
+                    <video autoplay playsinline muted loop class="w-full max-w-md mx-auto lg:max-w-none rounded-lg">
                         <source src="assets/scandalPourHommeLeParfum.webm" type="video/webm">
                     </video>
                 </div>
