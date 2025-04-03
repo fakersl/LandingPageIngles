@@ -574,6 +574,50 @@
         // Initialize AOS
         AOS.init();
     </script>
+    <!-- Lighthouse CI -->
+    <script type="module" src="https://unpkg.com/web-vitals/dist/web-vitals.iife.js"></script>
+    <!-- Adicione isso no final do <body> -->
+    <script>
+        // Monitoramento leve de performance
+        function trackPerf() {
+            const perfData = {
+                dcl: 0, // DOMContentLoaded
+                load: 0, // Window Load
+                lcp: 0,  // Largest Contentful Paint
+                cls: 0   // Cumulative Layout Shift
+            };
+
+            // Métricas básicas
+            perfData.dcl = performance.timing.domContentLoadedEventEnd - performance.timing.navigationStart;
+            perfData.load = performance.timing.loadEventEnd - performance.timing.navigationStart;
+
+            // Observer para LCP
+            new PerformanceObserver((entryList) => {
+                const entries = entryList.getEntries();
+                const lastEntry = entries[entries.length - 1];
+                perfData.lcp = lastEntry.renderTime || lastEntry.loadTime;
+            }).observe({ type: 'largest-contentful-paint', buffered: true });
+
+            // Observer para CLS
+            new PerformanceObserver((entryList) => {
+                for (const entry of entryList.getEntries()) {
+                    perfData.cls += entry.value;
+                }
+            }).observe({ type: 'layout-shift', buffered: true });
+
+            // Envia dados após 5s (opcional)
+            setTimeout(() => {
+                console.log('Performance Metrics:', perfData);
+                // Aqui você pode enviar para Google Analytics ou outro serviço
+            }, 5000);
+        }
+
+        // Inicia apenas em produção e para usuários reais
+        if (window.location.hostname !== 'localhost' &&
+            !navigator.userAgent.match(/bot|crawl|spider/i)) {
+            window.addEventListener('load', trackPerf, { once: true });
+        }
+    </script>
 </body>
 
 </html>
